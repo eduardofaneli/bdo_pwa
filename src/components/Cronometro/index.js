@@ -1,6 +1,8 @@
 import React from 'react';
+import moment from 'moment-timezone/builds/moment-timezone-with-data';
 
 import './styles.css';
+import { SlowBuffer } from 'buffer';
 
 
 export default class Cronometro extends React.Component {
@@ -26,7 +28,9 @@ export default class Cronometro extends React.Component {
     }
 
     calculateCountdown(endDate) {
-        let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date())) / 1000;
+        const currentDate = new Date();
+        var sao_paulo = moment.tz(currentDate.toISOString(), "America/Sao_Paulo");    
+        let diff = (Date.parse(new Date(endDate)) - Date.parse(sao_paulo)) / 1000;
 
         // clear countdown when date is reached
         if (diff <= 0) return false;
@@ -79,41 +83,43 @@ export default class Cronometro extends React.Component {
     
         return (
           <div id="timer">
-            <span id="days">{this.addLeadingZeros(countDown.days)}</span> days  
-            <span id="hours">{this.addLeadingZeros(countDown.hours)}</span> hours 
-            <span id="minutes">{this.addLeadingZeros(countDown.min)}</span> min
-            <span id="seconds">{this.addLeadingZeros(countDown.sec)}</span> sec
+            <span id="days">{this.addLeadingZeros(countDown.days)}</span> days {" "}  
+            <span id="hours">{this.addLeadingZeros(countDown.hours)}</span> hours {" "} 
+            <span id="minutes">{this.addLeadingZeros(countDown.min)}</span> min {" "}
+            <span id="seconds">{this.addLeadingZeros(countDown.sec)}</span> sec {" "}
           </div>          
-          // <div className="Countdown">
-          //   {/* <span className="Countdown-col">
-          //     <span className="Countdown-col-element">
-          //         <strong>{this.addLeadingZeros(countDown.days)}</strong>
-          //         <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>
-          //     </span>
-          //   </span> */}
+
+
+        //   <div className="Countdown">
+        //     {/* <span className="Countdown-col">
+        //       <span className="Countdown-col-element">
+        //           <strong>{this.addLeadingZeros(countDown.days)}</strong>
+        //           <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>
+        //       </span>
+        //     </span> */}
     
-          //   <span className="Countdown-col">
-          //     <span className="Countdown-col-element">
-          //       <strong>{this.addLeadingZeros(countDown.hours)}</strong>
-          //       <span>Hours</span>
-          //     </span>
-          //   </span>
+        //     <span className="Countdown-col">
+        //       <span className="Countdown-col-element">
+        //         <strong>{this.addLeadingZeros(countDown.hours)}</strong>
+        //         <span>Hours</span>
+        //       </span>
+        //     </span>
     
     
-          //   <span className="Countdown-col">
-          //     <span className="Countdown-col-element">
-          //       <strong>{this.addLeadingZeros(countDown.min)}</strong>
-          //       <span>Min</span>
-          //     </span>
-          //   </span>
+        //     <span className="Countdown-col">
+        //       <span className="Countdown-col-element">
+        //         <strong>{this.addLeadingZeros(countDown.min)}</strong>
+        //         <span>Min</span>
+        //       </span>
+        //     </span>
     
-          //   <span className="Countdown-col">
-          //     <span className="Countdown-col-element">
-          //       <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-          //       <span>Sec</span>
-          //     </span>
-          //   </span>
-          // </div>
+        //     <span className="Countdown-col">
+        //       <span className="Countdown-col-element">
+        //         <strong>{this.addLeadingZeros(countDown.sec)}</strong>
+        //         <span>Sec</span>
+        //       </span>
+        //     </span>
+        //   </div>
         );
       }
 

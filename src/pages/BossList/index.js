@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import './styles.css';
 
+import './styles.css';
 import Boss from '../../components/boss';
+
 
 export default class BossList extends Component {
     state = {
@@ -29,7 +30,7 @@ export default class BossList extends Component {
     }
 
     render() {
-        const { listBoss } = this.state;        
+        const { listBoss } = this.state;
         return (
             <div className="boss-list">
                 {listBoss.map(boss => (

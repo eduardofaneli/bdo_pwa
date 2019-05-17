@@ -83,43 +83,11 @@ export default class Cronometro extends React.Component {
     
         return (
           <div id="timer">
-            <span id="days">{this.addLeadingZeros(countDown.days)}</span> days {" "}  
-            <span id="hours">{this.addLeadingZeros(countDown.hours)}</span> hours {" "} 
-            <span id="minutes">{this.addLeadingZeros(countDown.min)}</span> min {" "}
-            <span id="seconds">{this.addLeadingZeros(countDown.sec)}</span> sec {" "}
-          </div>          
-
-
-        //   <div className="Countdown">
-        //     {/* <span className="Countdown-col">
-        //       <span className="Countdown-col-element">
-        //           <strong>{this.addLeadingZeros(countDown.days)}</strong>
-        //           <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>
-        //       </span>
-        //     </span> */}
-    
-        //     <span className="Countdown-col">
-        //       <span className="Countdown-col-element">
-        //         <strong>{this.addLeadingZeros(countDown.hours)}</strong>
-        //         <span>Hours</span>
-        //       </span>
-        //     </span>
-    
-    
-        //     <span className="Countdown-col">
-        //       <span className="Countdown-col-element">
-        //         <strong>{this.addLeadingZeros(countDown.min)}</strong>
-        //         <span>Min</span>
-        //       </span>
-        //     </span>
-    
-        //     <span className="Countdown-col">
-        //       <span className="Countdown-col-element">
-        //         <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-        //         <span>Sec</span>
-        //       </span>
-        //     </span>
-        //   </div>
+            <span id="days">{this.addLeadingZeros(countDown.days)}</span> dias {" "}  
+            <span id="hours">{this.addLeadingZeros(countDown.hours)}</span> horas {" "} 
+            <span id="minutes">{this.addLeadingZeros(countDown.min)}</span> minutos {" "}
+            <span id="seconds">{this.addLeadingZeros(countDown.sec)}</span> segundos {" "}
+          </div>              
         );
       }
 
